@@ -22,7 +22,7 @@ public protocol BaseViewControllerSearchDelegate: class {
 ///
 /// It also enforces a specific view model be provided upon creation
 /// which can be accessed via the .viewModel property
-public class BaseViewController<ViewType: UIView, ViewModelType>: UIViewController, UISearchBarDelegate {
+open class BaseViewController<ViewType: UIView, ViewModelType>: UIViewController, UISearchBarDelegate {
     /// Provides typed access to the view controllers custom view
     public var customView: ViewType { return self.view as! ViewType }
     
@@ -36,7 +36,7 @@ public class BaseViewController<ViewType: UIView, ViewModelType>: UIViewControll
     public weak var searchBarDelegate: BaseViewControllerSearchDelegate?
     
     // MARK - Lifecycle
-    required init(viewModel: ViewModelType) {
+    required public init(viewModel: ViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,7 +45,7 @@ public class BaseViewController<ViewType: UIView, ViewModelType>: UIViewControll
         fatalError("Must be initialised using init(viewModel:)")
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("Must be initialised using init(viewModel:)")
     }
     

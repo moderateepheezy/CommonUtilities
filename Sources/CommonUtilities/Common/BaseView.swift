@@ -8,18 +8,37 @@
 
 import UIKit
 
-public class BaseView: UIView {
-    
-    public override init(frame: CGRect) {
+func abstractMethod() -> Never {
+    fatalError("this method should be overriden")
+}
+
+open class BaseView: UIView {
+
+    override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        configure()
+        setupView()
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
     }
-    
-    public func configure() {
+
+    private func setupView() {
+        setupViewHierarchy()
+        setupConstraints()
+        setupProperties()
     }
+
+    public func setupViewHierarchy() {
+        abstractMethod()
+    }
+
+    public func setupConstraints() {
+        abstractMethod()
+    }
+
+    /// Optional method.
+    public func setupProperties() { }
 }
