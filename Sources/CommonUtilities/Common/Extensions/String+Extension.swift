@@ -24,31 +24,40 @@ public extension String {
 }
 
 public extension NSMutableAttributedString {
-    @discardableResult func first(_ text: String,
-                                  withParagraph: Bool = false,
-                                  paragraphlineSpacing: Int = 3,
-                                  font: UIFont, textColor: UIColor) -> NSMutableAttributedString {
+    @discardableResult func first(_ text: String?,
+                                  paragraphlineSpacing: CGFloat = 0,
+                                  font: UIFont,
+                                  textColor: UIColor,
+                                  textAlignment: NSTextAlignment = .left,
+                                  tabStops: [NSTextTab]? = nil
+    ) -> NSMutableAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 3
-        let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: textColor]
-        let textString = NSMutableAttributedString(string: text, attributes: attrs)
-        if withParagraph {
-            textString.addAttribute(
-                NSAttributedString.Key.paragraphStyle,
-                value: paragraphStyle,
-                range: NSRange(location: 0, length: textString.length))
-        }
+        paragraphStyle.lineSpacing = paragraphlineSpacing
+        paragraphStyle.alignment = textAlignment
+        if tabStops != nil { paragraphStyle.tabStops = tabStops }
+
+        let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: textColor, NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        let textString = NSMutableAttributedString(string: text ?? .empty, attributes: attrs)
         append(textString)
-        
+
         return self
     }
-    
-    @discardableResult func next(_ text: String,
-                                 font: UIFont, textColor: UIColor) -> NSMutableAttributedString {
-        let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: textColor]
-        let textString = NSMutableAttributedString(string: text, attributes: attrs)
+
+    @discardableResult func next(_ text: String?,
+                                 paragraphlineSpacing: CGFloat = 0,
+                                 font: UIFont,
+                                 textColor: UIColor,
+                                 textAlignment: NSTextAlignment = .left,
+                                 tabStops: [NSTextTab]? = nil
+    ) -> NSMutableAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = paragraphlineSpacing
+        paragraphStyle.alignment = textAlignment
+        if tabStops != nil { paragraphStyle.tabStops = tabStops }
+        let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: textColor, NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        let textString = NSMutableAttributedString(string: text ?? .empty, attributes: attrs)
         append(textString)
-        
+
         return self
     }
 }
