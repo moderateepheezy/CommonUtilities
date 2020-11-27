@@ -37,7 +37,7 @@ public extension NSMutableAttributedString {
         if tabStops != nil { paragraphStyle.tabStops = tabStops }
 
         let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: textColor, NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        let textString = NSMutableAttributedString(string: text ?? .empty, attributes: attrs)
+        let textString = NSMutableAttributedString(string: text ?? "", attributes: attrs)
         append(textString)
 
         return self
@@ -55,7 +55,7 @@ public extension NSMutableAttributedString {
         paragraphStyle.alignment = textAlignment
         if tabStops != nil { paragraphStyle.tabStops = tabStops }
         let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: textColor, NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        let textString = NSMutableAttributedString(string: text ?? .empty, attributes: attrs)
+        let textString = NSMutableAttributedString(string: text ?? "", attributes: attrs)
         append(textString)
 
         return self
