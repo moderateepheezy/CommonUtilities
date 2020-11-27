@@ -74,11 +74,15 @@ public class BaseViewController<ViewType: UIView, ViewModelType>: UIViewControll
     ///  To get text from search and to cancel the search controller
     /// - Parameters:
     ///    - searchBarTintColor: The *tint color* of the search bar
+
     public func addSearchController(tintColor: UIColor) {
         searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = tintColor
         searchController.searchBar.searchBarStyle = .prominent
+
+        if #available(iOS 9.1, *) {
+            searchController.obscuresBackgroundDuringPresentation = false
+        }
         
         if #available(iOS 11.0, *) {
             self.navigationItem.searchController = searchController
