@@ -102,7 +102,7 @@ open class BaseViewController<ViewType: UIView, ViewModelType>: UIViewController
     }
     
     /// `handleCancel()` take
-    @objc public func handleCancel() {}
+    @objc open func handleCancel() {}
     
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBarDelegate?.cancelSearch()

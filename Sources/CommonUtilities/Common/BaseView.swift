@@ -8,7 +8,7 @@
 
 import UIKit
 
-func abstractMethod() -> Never {
+public func abstractMethod() -> Never {
     fatalError("this method should be overriden")
 }
 
@@ -31,14 +31,14 @@ open class BaseView: UIView {
         setupProperties()
     }
 
-    public func setupViewHierarchy() {
+    open func setupViewHierarchy() {
         abstractMethod()
     }
 
-    public func setupConstraints() {
+    open func setupConstraints() {
         abstractMethod()
     }
 
     /// Optional method.
-    public func setupProperties() { }
+    open func setupProperties() { }
 }
