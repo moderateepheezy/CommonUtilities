@@ -8,64 +8,64 @@
 
 import UIKit
 
-class ImageTextVerticalButton: UIControl {
+open class ImageTextVerticalButton: UIControl {
 
-    var elevation: CGFloat = 0 {
+    public var elevation: CGFloat = 0 {
         didSet {
             rippleLayer.elevation = elevation
         }
     }
     
-    var cornerRadius: CGFloat = 0 {
+    public var cornerRadius: CGFloat = 0 {
         didSet {
             self.layer.cornerRadius = cornerRadius
             rippleLayer.superLayerDidResize()
         }
     }
     
-    var shadowOffset: CGSize = .zero {
+    public var shadowOffset: CGSize = .zero {
         didSet {
             rippleLayer.shadowOffset = shadowOffset
         }
     }
     
-    var roundingCorners: UIRectCorner = UIRectCorner.allCorners {
+    public var roundingCorners: UIRectCorner = UIRectCorner.allCorners {
         didSet {
             rippleLayer.roundingCorners = roundingCorners
         }
     }
     
-    var maskEnabled: Bool = true {
+    public var maskEnabled: Bool = true {
         didSet {
             rippleLayer.maskEnabled = maskEnabled
         }
     }
     
-    var rippleScaleRatio: CGFloat = 1.0 {
+    public var rippleScaleRatio: CGFloat = 1.0 {
         didSet {
             rippleLayer.rippleScaleRatio = rippleScaleRatio
         }
     }
     
-    var rippleDuration: CFTimeInterval = 0.35 {
+    public var rippleDuration: CFTimeInterval = 0.35 {
         didSet {
             rippleLayer.rippleDuration = rippleDuration
         }
     }
     
-    var rippleEnabled: Bool = true {
+    public var rippleEnabled: Bool = true {
         didSet {
             rippleLayer.rippleEnabled = rippleEnabled
         }
     }
     
-    var rippleLayerColor: UIColor = .lightGray {
+    public var rippleLayerColor: UIColor = .lightGray {
         didSet {
             rippleLayer.setRippleColor(color: rippleLayerColor)
         }
     }
     
-    var backgroundAnimationEnabled: Bool = true {
+    public var backgroundAnimationEnabled: Bool = true {
         didSet {
             rippleLayer.backgroundAnimationEnabled = backgroundAnimationEnabled
         }
@@ -77,7 +77,7 @@ class ImageTextVerticalButton: UIControl {
         }
     }
     
-    lazy var rippleLayer: RippleLayer = RippleLayer(withView: self)
+    public lazy var rippleLayer: RippleLayer = RippleLayer(withView: self)
     
     var imageView = UIImageView()
     var label = UILabel()
