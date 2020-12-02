@@ -71,7 +71,7 @@ open class ImageTextVerticalButton: UIControl {
         }
     }
     
-    override var bounds: CGRect {
+    open override var bounds: CGRect {
         didSet {
             rippleLayer.superLayerDidResize()
         }
