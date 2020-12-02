@@ -84,12 +84,12 @@ open class ImageTextVerticalButton: UIControl {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayer()
+        defaultSetup()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupLayer()
+        defaultSetup()
     }
     
     private func defaultSetup() {
