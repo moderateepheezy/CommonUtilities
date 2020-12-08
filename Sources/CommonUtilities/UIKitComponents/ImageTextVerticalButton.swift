@@ -85,10 +85,11 @@ open class ImageTextVerticalButton: UIControl {
     private let icon: UIImage?
     private let title: String?
 
-    init(icon: UIImage, title: String) {
+    init(icon: UIImage, title: String, backgroundColor: UIColor? = nil) {
         self.icon = icon
         self.title = title
         super.init(frame: .zero)
+        self.backgroundColor = backgroundColor
         defaultSetup()
     }
     
