@@ -81,13 +81,27 @@ open class ImageTextVerticalButton: UIControl {
     
     var imageView = UIImageView()
     var label = UILabel()
+
+    private let icon: UIImage?
+    private let title: String?
+
+    init(icon: UIImage, title: String) {
+        self.icon = icon
+        self.title = title
+        super.init(frame: .zero)
+        defaultSetup()
+    }
     
     override public init(frame: CGRect) {
+        self.icon = nil
+        self.title = nil
         super.init(frame: frame)
         defaultSetup()
     }
     
     required public init?(coder aDecoder: NSCoder) {
+        self.icon = nil
+        self.title = nil
         super.init(coder: aDecoder)
         defaultSetup()
     }
@@ -98,6 +112,8 @@ open class ImageTextVerticalButton: UIControl {
             self.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        label.text = title
+        imageView.image = icon
     }
     
     fileprivate func setupLayer() {
