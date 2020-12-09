@@ -79,8 +79,8 @@ open class ImageTextVerticalButton: UIControl {
     
     public lazy var rippleLayer: RippleLayer = RippleLayer(withView: self)
     
-    var imageView = UIImageView()
-    var label = UILabel()
+    public var imageView = UIImageView()
+    public var label = UILabel()
 
     private let icon: UIImage?
     private let title: String?
