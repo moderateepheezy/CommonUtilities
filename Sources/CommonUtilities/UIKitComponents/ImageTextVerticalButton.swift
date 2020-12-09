@@ -136,7 +136,6 @@ open class ImageTextVerticalButton: UIControl {
         let width = self.frame.width
         let height = self.frame.height
         imageView.contentMode = .scaleAspectFit
-        imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0.04 * height).isActive = true
         imageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
         imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4).isActive = true
         imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
