@@ -139,9 +139,9 @@ open class ImageTextVerticalButton: UIControl {
         imageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
         imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4).isActive = true
         imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 8).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -8).isActive = true
         
-        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0.05 * height).isActive = true
+        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, 11).isActive = true
         label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0.1 * width).isActive = true
         label.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -0.1 * width).isActive = true
         label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -0.03 * height).isActive = true
