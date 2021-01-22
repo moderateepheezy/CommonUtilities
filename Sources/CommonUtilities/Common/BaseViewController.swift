@@ -56,9 +56,9 @@ open class BaseViewController<ViewType: UIView, ViewModelType>: UIViewController
     /// Show a large title on iOS 11
     /// - Parameters:
     ///    - textColor: The *color* of the title text
-    public func setupLargeTitle(textColor: UIColor) {
+    public func setupLargeTitle(textColor: UIColor, font: UIFont) {
         if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : textColor, NSAttributedString.Key.font: UIFont.bold(ofSize: 34)!]
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : textColor, NSAttributedString.Key.font: font]
             self.navigationItem.largeTitleDisplayMode = .always
             self.navigationController?.navigationBar.prefersLargeTitles = true
         } else {
